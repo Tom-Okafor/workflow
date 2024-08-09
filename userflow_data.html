@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Flow Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .diagram {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .step {
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .action {
+            margin-left: 20px;
+        }
+        .system-action {
+            color: #0066cc;
+            font-style: italic;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 20px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram">
+        <h2>User Flow Diagram</h2>
+
+	<div class="step">
+            <div class="step-title">1. Account Creation</div>
+            <div class="action">- User fills account creation form</div>
+            <div class="system-action">- System  creates root user account and organization</div>
+            <div class="system-action">- User is redirected to Central Dashboard</div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+	<div class="step">
+            <div class="step-title">2. Staff Access Control</div>
+            <div class="action">- Root user clicks on "Staff Access Control"</div>
+            <div class="action">- Root user creates new staff member account</div>
+	    <div class="action">- Root user assigns permissions to staff member</div>
+            <div class="system-action">- System logs activity</div>
+            <div class="system-action">- System updates staff permissions database</div>
+        </div>
+
+        <div class="arrow">↓</div>
+        
+        <div class="step">
+            <div class="step-title">3. Staff Login</div>
+            <div class="action">- User enters staff-id and password</div>
+            <div class="system-action">- System authenticates user</div>
+	    <div class="system-action">- System logs activity</div>
+	    <div class="system-action">- System retrieves user permissions</div>
+            <div class="system-action">- User is redirected to Central Dashboard with only tabs user has access too</div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        
+        <div class="step">
+            <div class="step-title">4. Inventory Management</div>
+	    <div class="action">- User with access clicks on "Inventory Management" (IM)</div>
+            <div class="system-action">- User is taken to Inventory Management page</div>
+            <div class="action">- User views inventory list</div>
+            <div class="action">- User adds/updates inventory quantity</div>
+            <div class="action">- User clicks "Save"</div>
+	    <div class="system-action">- System verifies permissions</div>
+            <div class="system-action">- System updates inventory database (DB)</div>
+	    <div class="system-action">- System pushes update to every other user with inventory access</div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step">
+            <div class="step-title">5. Section Management</div>
+            <div class="action">- User with access clicks on "Section Management" (SM)</div>
+            <div class="action">- User views section list</div>
+            <div class="action">- User creates new section</div>
+	    <div class="action">- User clicks "Save"</div>
+	    <div class="system-action">- System verifies permissions</div>
+            <div class="system-action">- System updates section database (DB)</div>
+            <div class="action">- User allocates inventory to section</div>
+	    <div class="action">- User clicks "Save"</div>
+            <div class="system-action">- System verifies permissions</div>
+            <div class="system-action">- System updates section and permission database (DB)</div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step">
+            <div class="step-title">6. Staff Access Control</div>
+            <div class="action">- User with access clicks on "Staff Access Control" (SAC)</div>
+            <div class="action">- User assigns section permissions to staff member</div>
+	    <div class="system-action">- System verifies permissions</div>
+	    <div class="system-action">- System updates staff permissions, section and user database (DB)</div>
+            <div class="system-action">- System logs activity (AL)</div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step">
+            <div class="step-title">6. Activity Logging</div>
+            <div class="action">- User views activity logs</div>
+            <div class="action">- User filters logs by date or staff member</div>
+            <div class="system-action">- System displays filtered logs</div>
+        </div>
+        
+        <h3>User Interactions</h3>
+        <ul>
+            <li>Clicks</li>
+            <li>Form submissions (login/signup, inventory updates, section creations)</li>
+            <li>Page navigations</li>
+        </ul>
+        
+        <h3>System Responses</h3>
+        <ul>
+            <li>Authenticates user</li>
+            <li>Updates databases (inventory, sections, staff permissions)</li>
+            <li>Logs activities</li>
+            <li>Displays updated data</li>
+        </ul>
+    </div>
+</body>
+</html>
